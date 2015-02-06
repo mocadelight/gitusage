@@ -1,118 +1,5 @@
 Himiko:g1 mocadelight$ git add --patch f1.c
 diff --git a/f1.c b/f1.c
-index 5e2a8c6..d36b1df 100644
---- a/f1.c
-+++ b/f1.c
-@@ -1,9 +1,16 @@
- main(){
-   printf ("Hello world \n");
-   printf( "My note not found \n");
-+  printf( "line 1");
-+  printf( "line 2");
-+  printf( "line 3");
-+  printf( "line 4");
- }
- feature(){
-   printf( "more here \n");
-   printf( "hello");
-   printf( "yo" );
-+  printf( "line 5");
-+  printf( "line 6");
-+  printf( "line 7");
- }
-Stage this hunk [y,n,q,a,d,/,s,e,?]? e
-error: patch failed: f1.c:1
-error: f1.c: patch does not apply
-Your edited hunk does not apply. Edit again (saying "no" discards!) [y/n]? y
-
-Himiko:g1 mocadelight$ git diff --staging
-error: invalid option: --staging
-Himiko:g1 mocadelight$ git diff --staged
-diff --git a/f1.c b/f1.c
-index 5e2a8c6..ce5d01f 100644
---- a/f1.c
-+++ b/f1.c
-@@ -1,9 +1,13 @@
- main(){
-   printf ("Hello world \n");
-   printf( "My note not found \n");
-+  printf( "line 1");
-+  printf( "line 3");
- }
- feature(){
-   printf( "more here \n");
-   printf( "hello");
-   printf( "yo" );
-+  printf( "line 5");
-+  printf( "line 7");
- }
-Himiko:g1 mocadelight$ cat 
-.git/  f1.c   f1.c~  
-Himiko:g1 mocadelight$ cat f1.c
-main(){
-  printf ("Hello world \n");
-  printf( "My note not found \n");
-  printf( "line 1");
-  printf( "line 2");
-  printf( "line 3");
-  printf( "line 4");
-}
-feature(){
-  printf( "more here \n");
-  printf( "hello");
-  printf( "yo" );
-  printf( "line 5");
-  printf( "line 6");
-  printf( "line 7");
-}
-Himiko:g1 mocadelight$ git commit -v
-[detached HEAD a3ec9ee] Adding portion of files
- 1 file changed, 4 insertions(+)
-Himiko:g1 mocadelight$ ll
-total 16
--rw-r--r--  1 mocadelight  staff  299 Feb  6 12:58 f1.c
--rw-r--r--  1 mocadelight  staff  152 Feb  6 12:58 f1.c~
-Himiko:g1 mocadelight$ cat f1.c
-main(){
-  printf ("Hello world \n");
-  printf( "My note not found \n");
-  printf( "line 1");
-  printf( "line 2");
-  printf( "line 3");
-  printf( "line 4");
-}
-feature(){
-  printf( "more here \n");
-  printf( "hello");
-  printf( "yo" );
-  printf( "line 5");
-  printf( "line 6");
-  printf( "line 7");
-}
-Himiko:g1 mocadelight$ git status
-HEAD detached from 1ac1824
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-	modified:   f1.c
-
-no changes added to commit (use "git add" and/or "git commit -a")
-Himiko:g1 mocadelight$ ll
-total 16
--rw-r--r--  1 mocadelight  staff  299 Feb  6 12:58 f1.c
--rw-r--r--  1 mocadelight  staff  152 Feb  6 12:58 f1.c~
-Himiko:g1 mocadelight$ git status
-HEAD detached from 1ac1824
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-	modified:   f1.c
-
-no changes added to commit (use "git add" and/or "git commit -a")
-Himiko:g1 mocadelight$ git add --patch f1.c
-diff --git a/f1.c b/f1.c
 index ce5d01f..d36b1df 100644
 --- a/f1.c
 +++ b/f1.c
@@ -146,6 +33,10 @@ index ce5d01f..5c7984b 100644
 +  printf( "line 6");
    printf( "line 7");
  }
+
+
+
+
 Himiko:g1 mocadelight$ git commit -v -m 'adding just line 6'
 [detached HEAD fb6758d] adding just line 6
  1 file changed, 1 insertion(+)
@@ -158,6 +49,11 @@ Changes not staged for commit:
 	modified:   f1.c
 
 no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+
+
 Himiko:g1 mocadelight$ git diff
 diff --git a/f1.c b/f1.c
 index 5c7984b..d36b1df 100644
@@ -173,13 +69,6 @@ index 5c7984b..d36b1df 100644
  }
  feature(){
    printf( "more here \n");
-Himiko:g1 mocadelight$ cd ..
-Himiko:Git mocadelight$ ll
-total 0
-drwxr-xr-x  5 mocadelight  staff  170 Feb  6 12:58 g1
-drwxr-xr-x  2 mocadelight  staff   68 Feb  6 10:18 github
-drwxr-xr-x  2 mocadelight  staff   68 Feb  6 10:18 localonly
-Himiko:Git mocadelight$ cd github/
-Himiko:github mocadelight$ ll
-Himiko:github mocadelight$ 
+
+
 
